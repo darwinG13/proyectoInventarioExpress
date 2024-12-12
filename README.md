@@ -51,4 +51,4 @@ dentro del index.js pusimos el codigo:
 - response es lo que respondemos 
 - res.send("Hola mundo") : enviamos la respuesta
 - app.listen(PORT,()=>{ :escucha el puerto y avisame si lo estas escuchando
-- console.log(Listening port ${PORT}) el mensaje de que todo esta bien
+- console.log(Listening port ${PORT}) el mensaje de que todo esta bien# proyectoInventarioExpress
