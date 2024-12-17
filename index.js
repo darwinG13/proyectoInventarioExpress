@@ -1,14 +1,26 @@
 const express = require("express");
-const holaRoutes = require("./routes/helloRoutes")
-const app = express ();
+const mongoose = require ("mongoose")
+
+require("dotenv").config()
+const holaRoutes = require("./routes/helloRoutes");
+const inventarioRoutes = require("./routes/inventario");
+const app = express();
 PORT = 3000;
 app.set("port",PORT);
 app.get("/hola",(req,res)=>{
-    res.send("hola mundo")
+    res.send("Hola mundo");
 })
 
-//routes
-app.use("/api/hola",holaRoutes)
+app.use(express.json())
+
+//Routes
+app.use("/api/hola", holaRoutes);
+app.use("/api/inventario", inventarioRoutes);
+
+mongoose.connect(process.env.MONGO_URI)
+.then(()=> console.log("Conectado a la base de datos"))
+.catch((err)=>console.error(err))
+
 app.listen(PORT,()=>{
-    console.log(`listening port ${PORT}`)
+    console.log(`Listening port ${PORT}`)
 })
